@@ -1,0 +1,16 @@
+.button {
+  @apply bg-white rounded-md px-2 py-1 mr-2 shadow-md;
+}
+
+.button:hover,
+.button--active {
+  @apply transition duration-100 rounded-md px-2 py-1 mr-2 shadow-md bg-[color:var(--primary)] text-white;
+}
+
+.pagination-btn {
+  @apply bg-white px-4 py-3 shadow-md;
+}
+
+.pagination-btn:active {
+  @apply shadow-none bg-[#fffc];
+}

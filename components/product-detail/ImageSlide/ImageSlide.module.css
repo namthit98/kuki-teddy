@@ -1,0 +1,11 @@
+.image-wrapper {
+  @apply h-[200px] sm:h-[250px] md:h-[300px] lg:h-[400px] xl:h-[500px];
+}
+
+.arrow {
+  @apply absolute h-12 w-12 top-[calc(50%-15px)] cursor-pointer rounded-full transition duration-200 bg-transparent z-10 p-4;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.1);
+}

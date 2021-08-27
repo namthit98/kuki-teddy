@@ -1,0 +1,27 @@
+.product-card-wrapper {
+  @apply cursor-pointer h-80 my-3 px-1 lg:px-2 xl:px-3 w-6/12 md:w-4/12 lg:w-1/4 xl:w-1/5;
+}
+
+.product-card-wrapper:hover .product-card {
+  @apply shadow-2xl;
+}
+
+.product-card {
+  @apply transition duration-500 h-full w-full rounded-md shadow-lg flex flex-col overflow-hidden;
+}
+
+.product-card__image {
+  @apply relative w-full flex-1;
+}
+
+.product-card__content {
+  @apply h-20 flex flex-col items-center justify-center;
+}
+
+.product-card__name {
+  @apply text-[color:var(--text-color)] font-bold;
+}
+
+.product-card__pricing {
+  @apply text-[color:var(--primary)] font-bold;
+}

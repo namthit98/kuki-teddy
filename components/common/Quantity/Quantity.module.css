@@ -1,0 +1,15 @@
+.quantity {
+  @apply inline-flex justify-center items-center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.quantity input[type="number"] {
+  -moz-appearance: textfield;
+}

@@ -1,0 +1,16 @@
+.pagination {
+  @apply flex;
+}
+
+.pagination__item {
+  @apply w-10 h-10 flex items-center justify-center cursor-pointer text-[color:var(--text-color)] border bg-white;
+}
+
+.pagination__item--active {
+  @apply bg-[color:var(--primary)] text-white;
+}
+
+.pagination__next {
+}
+.pagination__prev {
+}

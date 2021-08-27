@@ -1,0 +1,12 @@
+.base-layout {
+  @apply flex;
+}
+
+.base-layout aside {
+  flex: 3;
+}
+
+.main {
+  @apply h-screen overflow-y-auto bg-[color:var(--background)];
+  flex: 9;
+}
