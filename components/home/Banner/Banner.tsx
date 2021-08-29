@@ -2,8 +2,33 @@ import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import styles from "./Banner.module.css";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+import { IBanner } from "../../../interfaces";
+import { BACKEND_URL } from "../../../constants/core.constant";
 
-export const Banner = () => {
+interface Props {
+  banner: IBanner | null;
+}
+
+export const Banner = ({ banner }: Props) => {
+  const renderBanner = (): any => {
+    if (!banner) return null;
+
+    return banner.images.map((img) => {
+      return (
+        <div key={img._id} className={styles["image-wrapper"]}>
+          <Image
+            className={styles["image"]}
+            src={`${BACKEND_URL}${img.url}`}
+            alt={img.name}
+            layout="fill"
+          />
+        </div>
+      );
+    });
+  };
+
+  if (!banner || !banner.images.length) return null;
+
   return (
     <Carousel
       showArrows={true}
@@ -42,32 +67,7 @@ export const Banner = () => {
       //   onClickItem={onClickItem}
       //   onClickThumb={onClickThumb}
     >
-      <div className={styles["image-wrapper"]}>
-        <Image
-          className={styles["image"]}
-          src="/teddy.jpeg"
-          alt="teddy"
-          layout="fill"
-        />
-      </div>
-
-      <div className={styles["image-wrapper"]}>
-        <Image
-          className={styles["image"]}
-          src="/teddy-1.png"
-          alt="teddy 1"
-          layout="fill"
-        />
-      </div>
-
-      <div className={styles["image-wrapper"]}>
-        <Image
-          className={styles["image"]}
-          src="/teddy-2.png"
-          alt="teddy 2"
-          layout="fill"
-        />
-      </div>
+      {renderBanner()}
     </Carousel>
   );
 };

@@ -1,30 +1,52 @@
 import React from "react";
+import get from "lodash.get";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./ProductCard.module.css";
+import { IProduct } from "../../../interfaces";
+import { BACKEND_URL } from "../../../constants/core.constant";
 
 interface Props {
-  _id: string;
-  imageUrl: string;
-  name: string;
-  pricing: number;
+  product: IProduct;
 }
 
-export const ProductCard = ({ _id, imageUrl, name, pricing }: Props) => {
+export const ProductCard = ({ product }: Props) => {
+  const productImage = get(product, "images.0.url", "");
+  const pricings = product.variants
+    .map((el) => [el.price, el.salePrice])
+    .flat()
+    .filter((x) => Boolean(x))
+    .map((x) => +x);
+
   return (
     <div className={styles["product-card-wrapper"]}>
       <Link href="/products/1234" passHref>
         <div className={styles["product-card"]}>
           <div className={styles["product-card__image"]}>
-            <Image src={imageUrl} alt="product 1" layout="fill" />
+            <Image
+              src={`${BACKEND_URL}${productImage}`}
+              alt="product 1"
+              layout="fill"
+            />
           </div>
 
           <div className={styles["product-card__content"]}>
-            <h3 className={styles["product-card__name"]}>{name}</h3>
-            <span className={styles["product-card__pricing"]}>{pricing}</span>
-            <div className={styles["product-card__actions"]}>
+            <h3 className={styles["product-card__name"]}>{product.name}</h3>
+            {pricings && pricings.length ? (
+              <span className={styles["product-card__pricing"]}>
+                {Math.min(...pricings)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                đ ~{" "}
+                {Math.max(...pricings)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                đ
+              </span>
+            ) : null}
+            {/* <div className={styles["product-card__actions"]}>
               <button>Mua hàng</button>
-            </div>
+            </div> */}
           </div>
         </div>
       </Link>

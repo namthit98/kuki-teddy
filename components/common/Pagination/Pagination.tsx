@@ -49,20 +49,23 @@ export const Pagination = (props: Props) => {
   );
   const [currentPage, setCurrentPage] = useState(1);
 
-  const gotoPage = (page: number) => {
-    const { onPageChanged } = props;
+  const gotoPage = React.useCallback(
+    (page: number) => {
+      const { onPageChanged } = props;
 
-    const currentPage = Math.max(0, Math.min(page, totalPages));
+      const currentPage = Math.max(0, Math.min(page, totalPages));
 
-    const paginationData = {
-      currentPage,
-      totalPages,
-      pageLimit,
-      totalRecords,
-    };
-    setCurrentPage(currentPage);
-    // if (onPageChanged) onPageChanged(paginationData);
-  };
+      const paginationData = {
+        currentPage,
+        totalPages,
+        pageLimit,
+        totalRecords,
+      };
+      setCurrentPage(currentPage);
+      if (onPageChanged) onPageChanged(paginationData);
+    },
+    [props, pageLimit, totalPages, totalRecords]
+  );
 
   const handleClick = (page: any) => (evt: React.SyntheticEvent) => {
     evt.preventDefault();

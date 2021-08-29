@@ -1,7 +1,15 @@
 import type { NextPage } from "next";
+import axios from "./../services/axios";
 import { BaseLayout, Container, ProductCard } from "../components/common";
 import { Pagination } from "../components/common/Pagination";
 import { Banner, Title, Toolbar } from "../components/home";
+import { IBanner, IProduct } from "../interfaces";
+import { ProductList } from "./../components/home";
+
+interface Props {
+  bannerImages: IBanner[];
+  products: IProduct[];
+}
 
 const products = [
   { _id: "32523", name: "Gấu chó", imageUrl: "/p1.png", pricing: 12532 },
@@ -42,77 +50,20 @@ const products = [
   },
 ];
 
-const Home: NextPage & { Layout: React.ReactNode } = () => {
-  const onPageChanged = (data: any) => {
-    console.log(data);
-  };
-
+const Home: NextPage<Props> & { Layout: React.ReactNode } = ({
+  bannerImages,
+  products,
+}) => {
   return (
     <>
-      <Banner />
+      <Banner
+        banner={bannerImages.find((x) => x.code === "home-banner") || null}
+      />
       <Container>
         <Toolbar />
         <div className="mb-10">
           <Title text="Tất cả sản phẩm" />
-          <div className="flex flex-wrap -mx-1 lg:-mx-2 xl:-mx-3">
-            {products
-              .map((value) => ({ value, sort: Math.random() }))
-              .sort((a, b) => a.sort - b.sort)
-              .map(({ value }) => value)
-              .map((x) => {
-                return <ProductCard key={x._id} {...x} />;
-              })}
-          </div>
-          <div className="w-full flex justify-center my-12">
-            <Pagination
-              totalRecords={200}
-              pageLimit={10}
-              pageNeighbours={1}
-              onPageChanged={onPageChanged}
-            />
-          </div>
-        </div>
-
-        <div className="mb-10">
-          <Title text="Thú nhồi bông" />
-          <div className="flex flex-wrap -mx-1 lg:-mx-2 xl:-mx-3">
-            {products
-              .map((value) => ({ value, sort: Math.random() }))
-              .sort((a, b) => a.sort - b.sort)
-              .map(({ value }) => value)
-              .map((x) => {
-                return <ProductCard key={x._id} {...x} />;
-              })}
-          </div>
-          <div className="w-full flex justify-center my-12">
-            <Pagination
-              totalRecords={200}
-              pageLimit={10}
-              pageNeighbours={1}
-              onPageChanged={onPageChanged}
-            />
-          </div>
-        </div>
-
-        <div className="mb-10">
-          <Title text="Thú siêu to khổng lồ" />
-          <div className="flex flex-wrap -mx-1 lg:-mx-2 xl:-mx-3">
-            {products
-              .map((value) => ({ value, sort: Math.random() }))
-              .sort((a, b) => a.sort - b.sort)
-              .map(({ value }) => value)
-              .map((x) => {
-                return <ProductCard key={x._id} {...x} />;
-              })}
-          </div>
-          <div className="w-full flex justify-center my-12">
-            <Pagination
-              totalRecords={200}
-              pageLimit={10}
-              pageNeighbours={1}
-              onPageChanged={onPageChanged}
-            />
-          </div>
+          <ProductList products={products} />
         </div>
       </Container>
     </>
@@ -120,5 +71,30 @@ const Home: NextPage & { Layout: React.ReactNode } = () => {
 };
 
 Home.Layout = BaseLayout;
+
+export const getStaticProps = async () => {
+  let bannerImages = [];
+  let products = [];
+
+  const [bannerRes, productRes] = await Promise.all([
+    axios.get("/banners"),
+    axios.get("/products"),
+  ]);
+
+  if (bannerRes && bannerRes.data && bannerRes.data.length) {
+    bannerImages = bannerRes.data;
+  }
+
+  if (productRes && productRes.data && productRes.data.length) {
+    products = productRes.data;
+  }
+
+  return {
+    props: {
+      bannerImages,
+      products,
+    },
+  };
+};
 
 export default Home;
