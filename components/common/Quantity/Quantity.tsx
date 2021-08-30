@@ -4,7 +4,7 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import styles from "./Quantity.module.css";
 
 interface Props {
-  defaultValue: number;
+  defaultValue?: number;
   onChange?: (value: string) => void;
 }
 
