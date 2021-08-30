@@ -33,4 +33,5 @@ export interface IProduct {
   variants: IVariant[];
   categories: ICategory[];
   images: IImage[];
+  Description?: string;
 }

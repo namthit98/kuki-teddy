@@ -3,10 +3,15 @@ import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import styles from "./Quantity.module.css";
 
-interface Props {}
+interface Props {
+  defaultValue: number;
+  onChange?: (value: string) => void;
+}
 
-export const Quantity = (props: Props) => {
-  const [quantity, setQuantity] = useState("1");
+export const Quantity = ({ defaultValue, onChange }: Props) => {
+  const [quantity, setQuantity] = useState(
+    defaultValue ? defaultValue.toString() : "1"
+  );
 
   const changeQuantity = (value: number) => {
     if (value < 0) {
@@ -25,6 +30,7 @@ export const Quantity = (props: Props) => {
     }
 
     setQuantity(value.toString());
+    if (onChange) onChange(value.toString());
   };
 
   return (

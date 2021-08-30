@@ -14,16 +14,19 @@ const TopProgressBar = dynamic(
 const Noop: React.FC = ({ children }) => <>{children}</>;
 
 import type { AppProps } from "next/app";
+import { CartProvider } from "../context/cart.context";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const Layout = (Component as any).Layout || Noop;
 
   return (
     <>
-      <Layout pageProps={pageProps}>
-        <TopProgressBar />
-        <Component {...pageProps} />
-      </Layout>
+      <CartProvider>
+        <Layout pageProps={pageProps}>
+          <TopProgressBar />
+          <Component {...pageProps} />
+        </Layout>
+      </CartProvider>
     </>
   );
 }

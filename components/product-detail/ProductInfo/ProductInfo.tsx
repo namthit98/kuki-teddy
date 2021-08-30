@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { VARIANT_DEFAULT } from "../../../constants/core.constant";
+import { ICartItem, useCartContext } from "../../../context/cart.context";
 import { IProduct } from "../../../interfaces";
 import { Quantity } from "../../common";
 import styles from "./ProductInfo.module.css";
@@ -25,18 +26,30 @@ const getColors = (product: IProduct) => {
 };
 
 export const ProductInfo = ({ product }: Props) => {
+  const cartState = useCartContext();
   const [currentVariant, setCurrentVariant] = useState<any>(null);
-  const [currentSize, setCurrentSize] = useState<any>("");
-  const [currentColor, setCurrentColor] = useState<any>("");
+  const [currentSize, setCurrentSize] = useState<string>("");
+  const [currentColor, setCurrentColor] = useState<string>("");
+  const [quantity, setQuantity] = useState<string>("1");
 
   const sizes = Array.from(new Set(getSizes(product)));
   const colors = Array.from(new Set(getColors(product)));
 
+  const handleAddToCart = () => {
+    const data: ICartItem = {
+      _id: product._id,
+      sku: product.sku,
+      color: currentColor,
+      size: currentSize,
+      quantity: +quantity,
+    };
+    cartState.addToCart(data);
+    console.log(cartState);
+  };
+
   useEffect(() => {
     const variant = product.variants.find(
-      (x) =>
-        (x.size === currentSize || !x.size) &&
-        (x.color === currentColor || !x.color)
+      (x) => x.size === currentSize && x.color === currentColor
     );
     if (variant) {
       setCurrentVariant(variant);
@@ -124,13 +137,16 @@ export const ProductInfo = ({ product }: Props) => {
       ) : null}
       <div className="flex my-4">
         <span className="mr-10 w-3/12 flex items-center">Số lượng</span>
-        <Quantity />
+        <Quantity onChange={(v) => setQuantity(v)} />
       </div>
       <div className={styles["product-detail__actions"]}>
         <button className="w-full font-bold text-white uppercase text-lg py-2 rounded-md bg-[color:var(--primary)] mb-2">
           Mua ngay
         </button>
-        <button className="w-full font-bold text-[color:var(--primary)] uppercase text-lg py-2 rounded-md border-2 border-[color:var(--primary)] hover:bg-[color:var(--primary)] hover:text-white transition duration-200">
+        <button
+          onClick={handleAddToCart}
+          className="w-full font-bold text-[color:var(--primary)] uppercase text-lg py-2 rounded-md border-2 border-[color:var(--primary)] hover:bg-[color:var(--primary)] hover:text-white transition duration-200"
+        >
           Thêm vào giỏ hàng
         </button>
       </div>

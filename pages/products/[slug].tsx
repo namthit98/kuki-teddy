@@ -22,11 +22,17 @@ const ProductDetailPage = ({ product }: Props) => {
           <ProductInfo product={product} />
         </div>
       </div>
-      <div className="w-full px-4 lg:px-10 pt-4">
-        <h3 className="text-xl text-[color:var(--text-color)] border-[color:var(--primary)] uppercase font-bold border-b-2 my-3">
-          Mô tả
-        </h3>
-      </div>
+      {product.Description ? (
+        <div className="w-full px-4 lg:px-10 pt-4">
+          <h3 className="text-xl text-[color:var(--text-color)] border-[color:var(--primary)] uppercase font-bold border-b-2 my-3">
+            Mô tả
+          </h3>
+          <div
+            className="whitespace-pre mb-20"
+            dangerouslySetInnerHTML={{ __html: product.Description }}
+          ></div>
+        </div>
+      ) : null}
     </>
   );
 };
@@ -59,6 +65,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     (product: IProduct) =>
       product.sku === params?.slug?.toString().split(".").pop()
   );
+
+  product.variants.forEach((pro: any) => {
+    if (!pro.hasOwnProperty("size")) pro.size = "";
+    if (!pro.hasOwnProperty("color")) pro.color = "";
+  });
 
   // Pass post data to the page via props
   return {
