@@ -1,26 +1,62 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { HiSelector } from "react-icons/hi";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import styles from "./Toolbar.module.css";
 
-interface Props {}
+interface Props {
+  onFilter?: (value: string) => void;
+  filter?: string;
+}
 const pricingSorts = [
   { name: "Giá: Thấp đến cao" },
   { name: "Giá: Cao đến Thấp" },
 ];
 
-export const Toolbar = (props: Props) => {
+export const Toolbar = ({ onFilter, filter }: Props) => {
   const [selected, setSelected] = React.useState<null | any>(null);
 
-  return (
-    <div className="w-full flex flex-wrap items-center px-4 my-5 min-h-14 bg-[color:var(--secondary)] rounded-md">
-      <span className="mr-3">Sắp xếp theo</span>
-      <button className={`${styles["button--active"]} my-3`}>Phổ Biến</button>
-      <button className={`${styles["button"]} my-3`}>Mới Nhất</button>
-      <button className={`${styles["button"]} my-3`}>Bán Chạy</button>
+  const filterHandler = (value: string) => {
+    if (onFilter) onFilter(value);
+  };
 
-      <Listbox value={selected} onChange={setSelected}>
+  return (
+    <div className="w-full flex flex-wrap justify-center items-center px-4 my-5 min-h-14 bg-[color:var(--secondary)] rounded-md">
+      {/* <span className="mr-3">Sắp xếp</span> */}
+      <button
+        className={`${
+          filter === "All" ? styles["button--active"] : styles["button"]
+        } my-3`}
+        onClick={filterHandler.bind(null, "All")}
+      >
+        Tất cả
+      </button>
+      <button
+        className={`${
+          filter === "Hot" ? styles["button--active"] : styles["button"]
+        } my-3`}
+        onClick={filterHandler.bind(null, "Hot")}
+      >
+        Phổ Biến
+      </button>
+      <button
+        className={`${
+          filter === "Newest" ? styles["button--active"] : styles["button"]
+        } my-3`}
+        onClick={filterHandler.bind(null, "Newest")}
+      >
+        Mới Nhất
+      </button>
+      <button
+        className={`${
+          filter === "BestSeller" ? styles["button--active"] : styles["button"]
+        } my-3`}
+        onClick={filterHandler.bind(null, "BestSeller")}
+      >
+        Bán Chạy
+      </button>
+
+      {/* <Listbox value={selected} onChange={setSelected}>
         <div className="relative inline-block mr-auto min-w-[167px] my-3">
           <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
             <span className="block truncate">
@@ -62,16 +98,6 @@ export const Toolbar = (props: Props) => {
                       >
                         {pricing.name}
                       </span>
-                      {/* {selected ? (
-                        <span
-                          className={`${
-                            active ? "text-amber-600" : "text-amber-600"
-                          }
-                                absolute inset-y-0 left-0 flex items-center pl-3`}
-                        >
-                          <FaCheck className="w-5 h-5" aria-hidden="true" />
-                        </span>
-                      ) : null} */}
                     </>
                   )}
                 </Listbox.Option>
@@ -91,7 +117,7 @@ export const Toolbar = (props: Props) => {
         <button className={`${styles["pagination-btn"]} rounded-r-md`}>
           <FaChevronRight className="h-3 w-3" />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

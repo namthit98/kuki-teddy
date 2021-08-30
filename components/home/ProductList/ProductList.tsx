@@ -19,14 +19,14 @@ export const ProductList = ({ products }: Props) => {
           <ProductCard key={product._id} product={product} />
         ))}
       </div>
-      <div className="w-full flex justify-center my-12">
+      {/* <div className="w-full flex justify-center my-12">
         <Pagination
           totalRecords={200}
           pageLimit={10}
           pageNeighbours={1}
           onPageChanged={onPageChanged}
         />
-      </div>
+      </div> */}
     </>
   );
 };

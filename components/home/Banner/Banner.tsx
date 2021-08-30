@@ -15,14 +15,15 @@ export const Banner = ({ banner }: Props) => {
 
     return banner.images.map((img) => {
       return (
-        <div key={img._id} className={styles["image-wrapper"]}>
-          <Image
-            className={styles["image"]}
-            src={`${BACKEND_URL}${img.url}`}
-            alt={img.name}
-            layout="fill"
-          />
-        </div>
+        // <div key={img._id} className={styles["image-wrapper"]}>
+        <Image
+          key={img._id}
+          src={`${BACKEND_URL}${img.url}`}
+          alt={img.name}
+          width={1920}
+          height={1000}
+        />
+        // </div>
       );
     });
   };

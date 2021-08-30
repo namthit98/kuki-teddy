@@ -1,11 +1,31 @@
+import React from "react";
 import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import styles from "./ImageSlide.module.css";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+import { BACKEND_URL } from "../../../constants/core.constant";
 
-interface Props {}
+interface Props {
+  images: any[];
+}
 
-export const ImageSlide = (props: Props) => {
+export const ImageSlide = ({ images }: Props) => {
+  const customRenderThumb = React.useCallback(() => {
+    return images.map((image) => {
+      return (
+        <div key={image._id} className="relative h-16">
+          <Image
+            key={image._id}
+            className={styles["image"]}
+            src={`${BACKEND_URL}${image.url}`}
+            alt={image.name}
+            layout="fill"
+          />
+        </div>
+      );
+    });
+  }, [images]);
+
   return (
     <Carousel
       showArrows={true}
@@ -40,34 +60,22 @@ export const ImageSlide = (props: Props) => {
           </button>
         )
       }
+      renderThumbs={customRenderThumb}
       //   onChange={onChange}
       //   onClickItem={onClickItem}
       //   onClickThumb={onClickThumb}
     >
-      <div>
-        <img src="/p1.png" />
-      </div>
-      <div>
-        <img src="/p2.jpeg" />
-      </div>
-      <div>
-        <img src="/p3.jpeg" />
-      </div>
-      <div>
-        <img src="/p2.jpeg" />
-      </div>
-      <div>
-        <img src="/p3.jpeg" />
-      </div>
-      <div>
-        <img src="/p2.jpeg" />
-      </div>
-      <div>
-        <img src="/p3.jpeg" />
-      </div>
-      <div>
-        <img src="/p4.jpeg" />
-      </div>
+      {images.map((image) => {
+        return (
+          <div key={image._id} className="relative h-[500px]">
+            <Image
+              src={`${BACKEND_URL}${image.url}`}
+              alt={image.name}
+              layout="fill"
+            />
+          </div>
+        );
+      })}
     </Carousel>
   );
 };

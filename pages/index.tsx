@@ -5,6 +5,9 @@ import { Pagination } from "../components/common/Pagination";
 import { Banner, Title, Toolbar } from "../components/home";
 import { IBanner, IProduct } from "../interfaces";
 import { ProductList } from "./../components/home";
+import { listProducts } from "../services/products.service";
+import { convertToSlug } from "../utils/convert-to-slug";
+import { useState } from "react";
 
 interface Props {
   bannerImages: IBanner[];
@@ -54,16 +57,25 @@ const Home: NextPage<Props> & { Layout: React.ReactNode } = ({
   bannerImages,
   products,
 }) => {
+  const [filter, setFilter] = useState("All");
+  const filterHandler = (value: string) => {
+    setFilter(value);
+  };
+
   return (
     <>
       <Banner
         banner={bannerImages.find((x) => x.code === "home-banner") || null}
       />
       <Container>
-        <Toolbar />
+        <Toolbar onFilter={filterHandler} filter={filter} />
         <div className="mb-10">
-          <Title text="Tất cả sản phẩm" />
-          <ProductList products={products} />
+          <Title text="Sản phẩm" />
+          <ProductList
+            products={products.filter(
+              (x: any) => filter === "All" || x[filter]
+            )}
+          />
         </div>
       </Container>
     </>
@@ -78,7 +90,7 @@ export const getStaticProps = async () => {
 
   const [bannerRes, productRes] = await Promise.all([
     axios.get("/banners"),
-    axios.get("/products"),
+    listProducts(),
   ]);
 
   if (bannerRes && bannerRes.data && bannerRes.data.length) {
