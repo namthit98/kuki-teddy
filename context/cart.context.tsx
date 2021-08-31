@@ -13,6 +13,7 @@ export interface ICartState {
   addToCart: (data: ICartItem) => void;
   checkExistedItem: (data: ICartItem) => boolean;
   increaseItemQuantity: (data: ICartItem) => void;
+  removeCartItem: (data: ICartItem) => void;
 }
 
 const CartContext = createContext<ICartState>({} as ICartState);
@@ -27,6 +28,13 @@ let state: ICartState = {
     }
 
     this.cart.push(data);
+  },
+  removeCartItem(data) {
+    const newCart = this.cart.filter(
+      (x) =>
+        !(x._id === data._id && x.color === data.color && x.size === data.size)
+    );
+    this.cart = newCart;
   },
   checkExistedItem(data) {
     return Boolean(

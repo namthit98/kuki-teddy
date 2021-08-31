@@ -1,10 +1,9 @@
 .navigation {
-  @apply text-white flex-col hidden sm:flex text-lg;
+  @apply fixed z-10 h-screen text-white flex-col hidden md:flex text-lg;
 
   background: #ff9cb3;
   background-image: linear-gradient(to bottom, #ff9cb3, #e6b8c4);
-  min-width: 200px;
-  max-width: 350px;
+  width: 250px;
 }
 
 .navigation__logo {

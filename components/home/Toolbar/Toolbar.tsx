@@ -33,25 +33,25 @@ export const Toolbar = ({ onFilter, filter }: Props) => {
       </button>
       <button
         className={`${
-          filter === "Hot" ? styles["button--active"] : styles["button"]
+          filter === "hot" ? styles["button--active"] : styles["button"]
         } my-3`}
-        onClick={filterHandler.bind(null, "Hot")}
+        onClick={filterHandler.bind(null, "hot")}
       >
         Phổ Biến
       </button>
       <button
         className={`${
-          filter === "Newest" ? styles["button--active"] : styles["button"]
+          filter === "newest" ? styles["button--active"] : styles["button"]
         } my-3`}
-        onClick={filterHandler.bind(null, "Newest")}
+        onClick={filterHandler.bind(null, "newest")}
       >
         Mới Nhất
       </button>
       <button
         className={`${
-          filter === "BestSeller" ? styles["button--active"] : styles["button"]
+          filter === "best" ? styles["button--active"] : styles["button"]
         } my-3`}
-        onClick={filterHandler.bind(null, "BestSeller")}
+        onClick={filterHandler.bind(null, "best")}
       >
         Bán Chạy
       </button>

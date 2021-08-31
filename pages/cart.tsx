@@ -11,9 +11,8 @@ import get from "lodash.get";
 
 interface Props {}
 
-let productMap: any;
-
 const CartPage = (props: Props) => {
+  const [forceUpdate, setForceUpdate] = useState(0);
   const cartState = useCartContext();
   const [productMap, setProductMap] = useState<any>(null);
 
@@ -22,7 +21,7 @@ const CartPage = (props: Props) => {
     if (productRes && productRes.data && productRes.data.length) {
       const map = new Map();
       productRes.data.forEach((pro: any) => {
-        pro.variants.forEach((x: any) => {
+        pro.Variants.forEach((x: any) => {
           if (!x.hasOwnProperty("size")) x.size = "";
           if (!x.hasOwnProperty("color")) x.color = "";
         });
@@ -51,7 +50,7 @@ const CartPage = (props: Props) => {
           {cartState.cart && cartState.cart.length
             ? cartState.cart.map((x, index) => {
                 const prod: IProduct = productMap.get(x._id);
-                const variant = prod.variants.find(
+                const variant = prod.Variants.find(
                   (v) => v.color === x.color && v.size === x.size
                 );
                 return (
@@ -93,7 +92,13 @@ const CartPage = (props: Props) => {
                       </div>
 
                       <div className="w-1/12 flex justify-end items-end">
-                        <FaTrash className="w-5 h-5 cursor-pointer" />
+                        <FaTrash
+                          className="w-5 h-5 cursor-pointer"
+                          onClick={() => {
+                            cartState.removeCartItem(x);
+                            setForceUpdate(forceUpdate + 1);
+                          }}
+                        />
                       </div>
                     </div>
                   </div>

@@ -2,11 +2,7 @@
   @apply flex;
 }
 
-.base-layout aside {
-  flex: 3;
-}
-
 .main {
-  @apply h-screen overflow-y-auto bg-[color:var(--background)];
-  flex: 9;
+  @apply bg-[color:var(--background)] pl-0 md:pl-[250px] min-h-screen;
+  flex: 1;
 }

@@ -13,14 +13,13 @@ interface Props {
 
 const getSizes = (product: IProduct) => {
   console.log("get size again");
-  return product.variants
-    .map((x) => x.size || "")
-    .filter((x) => x !== VARIANT_DEFAULT);
+  return product.Variants.map((x) => x.size || "").filter(
+    (x) => x !== VARIANT_DEFAULT
+  );
 };
 
 const getColors = (product: IProduct) => {
-  return product.variants
-    .map((x) => x.color || "")
+  return product.Variants.map((x) => x.color || "")
     .filter((x) => x !== VARIANT_DEFAULT)
     .filter((x) => Boolean(x));
 };
@@ -48,7 +47,7 @@ export const ProductInfo = ({ product }: Props) => {
   };
 
   useEffect(() => {
-    const variant = product.variants.find(
+    const variant = product.Variants.find(
       (x) => x.size === currentSize && x.color === currentColor
     );
     if (variant) {

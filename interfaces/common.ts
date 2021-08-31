@@ -30,8 +30,8 @@ export interface IProduct {
   _id: string;
   sku: string;
   name: string;
-  variants: IVariant[];
+  Variants: IVariant[];
   categories: ICategory[];
   images: IImage[];
-  Description?: string;
+  description?: string;
 }

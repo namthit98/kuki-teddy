@@ -15,8 +15,7 @@ export const ProductCard = ({ product }: Props) => {
   const productImage = get(product, "images.0.url", "");
   const pricings = Array.from(
     new Set(
-      product.variants
-        .map((el) => [el.price, el.salePrice])
+      product.Variants.map((el) => [el.price, el.salePrice])
         .flat()
         .filter((x) => Boolean(x))
         .map((x) => +x)
