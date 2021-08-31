@@ -23,12 +23,12 @@ const ProductDetailPage = ({ product }: Props) => {
         </div>
       </div>
       {product.description ? (
-        <div className="w-full px-4 lg:px-10 pt-4">
+        <div className="w-full px-4 lg:px-10 pt-4 pb-20">
           <h3 className="text-xl text-[color:var(--text-color)] border-[color:var(--primary)] uppercase font-bold border-b-2 my-3">
             Mô tả
           </h3>
           <div
-            className="whitespace-pre mb-20"
+            className="whitespace-pre-line"
             dangerouslySetInnerHTML={{ __html: product.description }}
           ></div>
         </div>

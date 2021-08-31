@@ -1,8 +1,3 @@
-.base-layout {
-  @apply flex;
-}
-
 .main {
-  @apply bg-[color:var(--background)] pl-0 md:pl-[250px] min-h-screen;
-  flex: 1;
+  @apply bg-[color:var(--background)] pl-0 md:pl-[250px] min-h-screen w-[100vw-250px];
 }

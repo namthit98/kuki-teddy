@@ -105,19 +105,19 @@ const CheckoutPage = (props: Props) => {
                 <span>125.000đ</span>
               </div>
 
-              <div className="flex justify-between border-b-[1px] border-gray-200 py-2">
+              {/* <div className="flex justify-between border-b-[1px] border-gray-200 py-2">
                 <span>Phí ship</span>
                 <span>10.000đ</span>
-              </div>
+              </div> */}
 
               <div className="flex justify-between border-b-[1px] border-gray-200 py-2">
                 <span>Giám giá</span>
-                <span>-15.000đ</span>
+                <span>0đ</span>
               </div>
 
               <div className="flex justify-between border-b-[1px] border-gray-200 py-2">
                 <span className="font-bold">Tổng cộng</span>
-                <span className="font-bold">120.000đ</span>
+                <span className="font-bold">125.000đ</span>
               </div>
             </div>
           </div>
