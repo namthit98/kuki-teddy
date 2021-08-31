@@ -8,6 +8,7 @@ import { listProducts } from "../services/products.service";
 import { IProduct } from "../interfaces";
 import { BACKEND_URL } from "../constants/core.constant";
 import get from "lodash.get";
+import { ImageLoader } from "../components/common/ImageLoader";
 
 interface Props {}
 
@@ -69,7 +70,8 @@ const CartPage = (props: Props) => {
                   >
                     <div className="relative w-full sm:w-4/12 xl:w-3/12 h-64 mr-4 mb-4 sm:mb-0">
                       <Image
-                        src={`${BACKEND_URL}${get(prod, "images.0.url", "")}`}
+                        loader={ImageLoader}
+                        src={`${get(prod, "images.0.url", "")}`}
                         alt="product"
                         layout="fill"
                       />

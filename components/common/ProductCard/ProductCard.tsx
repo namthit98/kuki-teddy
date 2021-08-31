@@ -6,6 +6,7 @@ import styles from "./ProductCard.module.css";
 import { IProduct } from "../../../interfaces";
 import { BACKEND_URL } from "../../../constants/core.constant";
 import { convertToSlug } from "../../../utils/convert-to-slug";
+import { ImageLoader } from "../ImageLoader";
 
 interface Props {
   product: IProduct;
@@ -31,7 +32,8 @@ export const ProductCard = ({ product }: Props) => {
         <div className={styles["product-card"]}>
           <div className={styles["product-card__image"]}>
             <Image
-              src={`${BACKEND_URL}${productImage}`}
+              loader={ImageLoader}
+              src={`${productImage}`}
               alt="product 1"
               layout="fill"
             />

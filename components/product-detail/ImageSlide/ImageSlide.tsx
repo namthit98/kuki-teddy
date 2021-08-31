@@ -4,6 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 import styles from "./ImageSlide.module.css";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { BACKEND_URL } from "../../../constants/core.constant";
+import { ImageLoader } from "../../common/ImageLoader";
 
 interface Props {
   images: any[];
@@ -15,9 +16,10 @@ export const ImageSlide = ({ images }: Props) => {
       return (
         <div key={image._id} className="relative h-16">
           <Image
+            loader={ImageLoader}
             key={image._id}
             className={styles["image"]}
-            src={`${BACKEND_URL}${image.url}`}
+            src={`${image.url}`}
             alt={image.name}
             layout="fill"
           />
@@ -69,7 +71,8 @@ export const ImageSlide = ({ images }: Props) => {
         return (
           <div key={image._id} className="relative h-[500px]">
             <Image
-              src={`${BACKEND_URL}${image.url}`}
+              loader={ImageLoader}
+              src={`${image.url}`}
               alt={image.name}
               layout="fill"
             />

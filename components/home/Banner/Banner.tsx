@@ -3,15 +3,10 @@ import { Carousel } from "react-responsive-carousel";
 import styles from "./Banner.module.css";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { IBanner } from "../../../interfaces";
-import { BACKEND_URL } from "../../../constants/core.constant";
-
+import { ImageLoader } from "../../common/ImageLoader";
 interface Props {
   banner: IBanner | null;
 }
-
-const myLoader = ({ src }: any) => {
-  return `${BACKEND_URL}${src}`;
-};
 
 export const Banner = ({ banner }: Props) => {
   const renderBanner = (): any => {
@@ -21,7 +16,7 @@ export const Banner = ({ banner }: Props) => {
       return (
         // <div key={img._id} className={styles["image-wrapper"]}>
         <Image
-          loader={myLoader}
+          loader={ImageLoader}
           key={img._id}
           src={`${img.url}`}
           alt={img.name}
