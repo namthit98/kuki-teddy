@@ -60,6 +60,8 @@ export const ProductInfo = ({ product }: Props) => {
     if (colors && colors.length) setCurrentColor(colors[0]);
   }, []);
 
+  console.log(product);
+
   return (
     <div className={styles["product-detail"]}>
       <h2 className={styles["product-detail__name"]}>{product.name}</h2>

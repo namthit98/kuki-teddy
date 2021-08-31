@@ -9,6 +9,10 @@ interface Props {
   banner: IBanner | null;
 }
 
+const myLoader = ({ src }: any) => {
+  return `${BACKEND_URL}${src}`;
+};
+
 export const Banner = ({ banner }: Props) => {
   const renderBanner = (): any => {
     if (!banner) return null;
@@ -17,8 +21,9 @@ export const Banner = ({ banner }: Props) => {
       return (
         // <div key={img._id} className={styles["image-wrapper"]}>
         <Image
+          loader={myLoader}
           key={img._id}
-          src={`${BACKEND_URL}${img.url}`}
+          src={`${img.url}`}
           alt={img.name}
           width={1920}
           height={1000}
