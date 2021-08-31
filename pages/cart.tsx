@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaTrash } from "react-icons/fa";
@@ -12,9 +12,10 @@ import get from "lodash.get";
 interface Props {}
 
 const CartPage = (props: Props) => {
-  const [forceUpdate, setForceUpdate] = useState(0);
   const cartState = useCartContext();
+  const [forceUpdate, setForceUpdate] = useState(0);
   const [productMap, setProductMap] = useState<any>(null);
+  const totalRef = useRef<any>(0);
 
   const fetchProducts = async () => {
     const productRes = await listProducts();
@@ -39,6 +40,8 @@ const CartPage = (props: Props) => {
 
   if (!productMap) return null;
 
+  totalRef.current = 0;
+
   return (
     <Container>
       <div className="mt-24 sm:mt-6 mb-6">
@@ -53,6 +56,12 @@ const CartPage = (props: Props) => {
                 const variant = prod.Variants.find(
                   (v) => v.color === x.color && v.size === x.size
                 );
+                if (variant) {
+                  totalRef.current = totalRef.current +=
+                    (variant?.isSale ? +variant.salePrice : +variant.price) *
+                    x.quantity;
+                }
+
                 return (
                   <div
                     key={index}
@@ -110,19 +119,26 @@ const CartPage = (props: Props) => {
         <div className="w-full lg:w-4/12 mt-8 lg:mt-0 pl-0 lg:pl-2">
           <div className="bg-white shadow-md">
             <div className="px-4 py-3">
-              <div className="flex justify-between border-b-[1px] border-gray-200 py-2">
+              {/* <div className="flex justify-between border-b-[1px] border-gray-200 py-2">
                 <span>Tổng tiền</span>
                 <span>123.000đ</span>
-              </div>
-
+              </div> */}
+              {/* 
               <div className="flex justify-between border-b-[1px] border-gray-200 py-2">
                 <span>Phí ship</span>
                 <span>10.000đ</span>
-              </div>
+              </div> */}
 
               <div className="flex justify-between border-b-[1px] border-gray-200 py-2">
                 <span className="font-bold">Tổng cộng</span>
-                <span className="font-bold">133.000đ</span>
+                <span className="font-bold">
+                  {totalRef.current
+                    ? totalRef.current
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    : 0}
+                  đ
+                </span>
               </div>
 
               <div className="mt-6">
