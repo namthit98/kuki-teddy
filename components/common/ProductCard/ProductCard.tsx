@@ -30,17 +30,19 @@ export const ProductCard = ({ product }: Props) => {
         passHref
       >
         <div className={styles["product-card"]}>
-          <div className={styles["product-card__image"]}>
-            <Image
-              loader={ImageLoader}
-              src={`${productImage}`}
-              alt="product 1"
-              layout="fill"
-            />
-          </div>
+          <Image
+            loader={ImageLoader}
+            src={`${productImage}`}
+            alt="product 1"
+            layout="responsive"
+            width={512}
+            height={512}
+          />
 
           <div className={styles["product-card__content"]}>
-            <h3 className={styles["product-card__name"]}>{product.name}</h3>
+            <div className="h-12">
+              <h3 className={styles["product-card__name"]}>{product.name}</h3>
+            </div>
             {pricings && pricings.length === 1 ? (
               <span className={styles["product-card__pricing"]}>
                 {pricings[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}đ
