@@ -10,7 +10,7 @@ interface Props {
 export const BaseLayout = ({ children }: Props) => {
   return (
     <div className={styles["base-layout"]}>
-      <Drawer />
+      {/* <Drawer /> */}
       <Navigation />
       <main className={styles["main"]}>{children}</main>
     </div>

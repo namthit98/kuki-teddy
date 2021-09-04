@@ -21,7 +21,7 @@ export const Toolbar = ({ onFilter, filter }: Props) => {
   };
 
   return (
-    <div className="w-full flex flex-wrap justify-center items-center px-4 my-5 min-h-14 bg-[color:var(--secondary)] rounded-md">
+    <div className="w-full flex flex-wrap justify-center items-center px-4 my-6 min-h-14 bg-[color:var(--secondary)] rounded-md">
       {/* <span className="mr-3">Sắp xếp</span> */}
       <button
         className={`${

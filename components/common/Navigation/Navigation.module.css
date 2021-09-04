@@ -1,17 +1,24 @@
-.navigation {
-  @apply fixed z-10 h-screen text-white flex-col hidden md:flex text-lg;
+.navigation-wrapper {
+  @apply h-20 bg-[color:var(--primary)];
 
-  background: #ff9cb3;
-  background-image: linear-gradient(to bottom, #ff9cb3, #e6b8c4);
-  width: 250px;
+  /* background: #e6b8c4; */
+  /* background-image: linear-gradient(to bottom, #ff9cb3, #e6b8c4); */
+}
+
+.navigation {
+  @apply text-white flex text-lg max-w-6xl mx-auto items-center justify-center;
 }
 
 .navigation__logo {
-  @apply h-52 flex justify-center items-center text-4xl flex-col;
+  @apply h-20 flex justify-center items-center text-2xl;
 }
 .navigation__menu {
-  @apply flex flex-col px-10 py-2;
+  @apply flex;
   flex: 1;
+}
+
+.navigation__menu ul {
+  @apply flex;
 }
 
 .navigation__menu-item {
@@ -23,7 +30,6 @@
 }
 
 .navigation__socials {
-  @apply h-40;
 }
 
 .navigation__socials-list {

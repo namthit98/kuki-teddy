@@ -13,17 +13,17 @@ interface Props {
 const ProductDetailPage = ({ product }: Props) => {
   return (
     <>
-      <div className="flex flex-col lg:flex-row lg:pt-14 justify-center items-center">
-        <div className="w-full mb-6 lg:mb-0 lg:w-5/12">
+      <div className="flex flex-col md:flex-row justify-center items-center mt-0 md:mt-6">
+        <div className="w-full mb-6 md:mb-0 md:w-5/12">
           <ImageSlide images={product.images} />
         </div>
 
-        <div className="w-full lg:w-6/12 px-4 self-start">
+        <div className="w-full md:w-6/12 px-4 md:pl-10 self-start">
           <ProductInfo product={product} />
         </div>
       </div>
       {product.description ? (
-        <div className="w-full px-4 lg:px-10 pt-4 pb-20">
+        <div className="w-full px-4 lg:px-10 pr-4 pb-20">
           <h3 className="text-xl text-[color:var(--text-color)] border-[color:var(--primary)] uppercase font-bold border-b-2 my-3">
             Mô tả
           </h3>

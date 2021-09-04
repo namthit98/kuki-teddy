@@ -11,7 +11,7 @@
 }
 
 .product-detail__variant-button {
-  @apply py-1 px-2 mr-2 rounded-md text-[color:var(--primary)] border-[1px] border-[color:var(--primary)] hover:text-white hover:bg-[color:var(--primary)] transition duration-200;
+  @apply py-1 px-2 mr-2 mb-2 rounded-md text-[color:var(--primary)] border-[1px] border-[color:var(--primary)] hover:text-white hover:bg-[color:var(--primary)] transition duration-200;
 }
 
 .product-detail__variant-button--active {

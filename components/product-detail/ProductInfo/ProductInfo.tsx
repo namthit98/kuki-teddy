@@ -136,7 +136,7 @@ export const ProductInfo = ({ product }: Props) => {
           </div>
         </div>
       ) : null}
-      <div className="flex my-4">
+      {/* <div className="flex my-4">
         <span className="mr-10 w-3/12 flex items-center">Số lượng</span>
         <Quantity onChange={(v) => setQuantity(v)} />
       </div>
@@ -150,7 +150,7 @@ export const ProductInfo = ({ product }: Props) => {
         >
           Thêm vào giỏ hàng
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

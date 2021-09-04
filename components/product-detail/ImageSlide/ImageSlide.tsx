@@ -21,7 +21,9 @@ export const ImageSlide = ({ images }: Props) => {
             className={styles["image"]}
             src={`${image.url}`}
             alt={image.name}
-            layout="fill"
+            width={512}
+            height={512}
+            layout="responsive"
           />
         </div>
       );
