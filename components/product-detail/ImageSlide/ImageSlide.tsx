@@ -21,9 +21,7 @@ export const ImageSlide = ({ images }: Props) => {
             className={styles["image"]}
             src={`${image.url}`}
             alt={image.name}
-            width={512}
-            height={512}
-            layout="responsive"
+            layout="fill"
           />
         </div>
       );
@@ -71,12 +69,14 @@ export const ImageSlide = ({ images }: Props) => {
     >
       {images.map((image) => {
         return (
-          <div key={image._id} className="relative h-[500px]">
+          <div key={image._id} className="relative">
             <Image
               loader={ImageLoader}
               src={`${image.url}`}
               alt={image.name}
-              layout="fill"
+              width={512}
+              height={512}
+              layout="responsive"
             />
           </div>
         );
