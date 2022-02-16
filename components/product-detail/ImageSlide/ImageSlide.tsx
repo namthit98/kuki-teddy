@@ -16,10 +16,10 @@ export const ImageSlide = ({ images }: Props) => {
       return (
         <div key={image._id} className="relative h-16">
           <Image
-            loader={ImageLoader}
+            // loader={ImageLoader}
             key={image._id}
             className={styles["image"]}
-            src={`${image.url}`}
+            src={image.url}
             alt={image.name}
             layout="fill"
           />
@@ -71,8 +71,8 @@ export const ImageSlide = ({ images }: Props) => {
         return (
           <div key={image._id} className="relative">
             <Image
-              loader={ImageLoader}
-              src={`${image.url}`}
+              // loader={ImageLoader}
+              src={image.url}
               alt={image.name}
               width={512}
               height={512}

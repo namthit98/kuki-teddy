@@ -31,8 +31,7 @@ export const ProductCard = ({ product }: Props) => {
       >
         <div className={styles["product-card"]}>
           <Image
-            loader={ImageLoader}
-            src={`${productImage}`}
+            src={productImage}
             alt="product 1"
             layout="responsive"
             width={512}

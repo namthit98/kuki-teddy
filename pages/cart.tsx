@@ -71,8 +71,8 @@ const CartPage = (props: Props) => {
                     >
                       <div className="relative w-full sm:w-5/12 xl:w-3/12 h-64 mr-4 mb-4 sm:mb-0">
                         <Image
-                          loader={ImageLoader}
-                          src={`${get(prod, "images.0.url", "")}`}
+                          // loader={ImageLoader}
+                          src={get(prod, "images.0.url", "")}
                           alt="product"
                           layout="fill"
                         />

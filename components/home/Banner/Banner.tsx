@@ -16,9 +16,9 @@ export const Banner = ({ banner }: Props) => {
       return (
         // <div key={img._id} className={styles["image-wrapper"]}>
         <Image
-          loader={ImageLoader}
+          // loader={ImageLoader}
           key={img._id}
-          src={`${img.url}`}
+          src={img.url}
           alt={img.name}
           width={1920}
           height={1000}

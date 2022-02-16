@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import axios from "./../services/axios";
 import { BaseLayout, Container, ProductCard } from "../components/common";
 import { Pagination } from "../components/common/Pagination";
 import { Banner, Title, Toolbar } from "../components/home";
@@ -8,6 +7,7 @@ import { ProductList } from "./../components/home";
 import { listProducts } from "../services/products.service";
 import { convertToSlug } from "../utils/convert-to-slug";
 import { useState } from "react";
+import { listBanners } from "../services/banners.service";
 
 interface Props {
   bannerImages: IBanner[];
@@ -52,7 +52,7 @@ export const getStaticProps = async () => {
   let products = [];
 
   const [bannerRes, productRes] = await Promise.all([
-    axios.get("/banners"),
+    listBanners(),
     listProducts(),
   ]);
 

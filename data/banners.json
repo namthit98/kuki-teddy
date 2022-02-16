@@ -1,0 +1,237 @@
+[
+    {
+        "images": [
+            {
+                "_id": "613ce32c6e385200970ef2c5",
+                "name": "Slice 1.png",
+                "alternativeText": "",
+                "caption": "",
+                "hash": "Slice_1_d684e79872",
+                "ext": ".png",
+                "mime": "image/png",
+                "size": 365.47,
+                "width": 934,
+                "height": 590,
+                "url": "/uploads/Slice_1_d684e79872.png",
+                "formats": {
+                    "thumbnail": {
+                        "name": "thumbnail_Slice 1.png",
+                        "hash": "thumbnail_Slice_1_d684e79872",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "width": 245,
+                        "height": 155,
+                        "size": 52.36,
+                        "path": null,
+                        "url": "/uploads/thumbnail_Slice_1_d684e79872.png"
+                    },
+                    "medium": {
+                        "name": "medium_Slice 1.png",
+                        "hash": "medium_Slice_1_d684e79872",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "width": 750,
+                        "height": 474,
+                        "size": 352.07,
+                        "path": null,
+                        "url": "/uploads/medium_Slice_1_d684e79872.png"
+                    },
+                    "small": {
+                        "name": "small_Slice 1.png",
+                        "hash": "small_Slice_1_d684e79872",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "width": 500,
+                        "height": 316,
+                        "size": 173.71,
+                        "path": null,
+                        "url": "/uploads/small_Slice_1_d684e79872.png"
+                    }
+                },
+                "provider": "local",
+                "related": [
+                    "612da4c777e23a0057295819"
+                ],
+                "createdAt": "2021-09-11T17:11:08.610Z",
+                "updatedAt": "2021-09-11T17:11:51.360Z",
+                "__v": 0,
+                "id": "613ce32c6e385200970ef2c5"
+            },
+            {
+                "_id": "612dc8286e385200970ef0b7",
+                "name": "teddy-1.png",
+                "alternativeText": "",
+                "caption": "",
+                "hash": "teddy_1_dee536dfa0",
+                "ext": ".png",
+                "mime": "image/png",
+                "size": 96.23,
+                "width": 1000,
+                "height": 536,
+                "url": "/uploads/teddy_1_dee536dfa0.png",
+                "formats": {
+                    "thumbnail": {
+                        "name": "thumbnail_teddy-1.png",
+                        "hash": "thumbnail_teddy_1_dee536dfa0",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "width": 245,
+                        "height": 131,
+                        "size": 40.08,
+                        "path": null,
+                        "url": "/uploads/thumbnail_teddy_1_dee536dfa0.png"
+                    },
+                    "medium": {
+                        "name": "medium_teddy-1.png",
+                        "hash": "medium_teddy_1_dee536dfa0",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "width": 750,
+                        "height": 402,
+                        "size": 222.29,
+                        "path": null,
+                        "url": "/uploads/medium_teddy_1_dee536dfa0.png"
+                    },
+                    "small": {
+                        "name": "small_teddy-1.png",
+                        "hash": "small_teddy_1_dee536dfa0",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "width": 500,
+                        "height": 268,
+                        "size": 114.09,
+                        "path": null,
+                        "url": "/uploads/small_teddy_1_dee536dfa0.png"
+                    }
+                },
+                "provider": "local",
+                "related": [
+                    "612da4c777e23a0057295819"
+                ],
+                "createdAt": "2021-08-31T06:11:52.905Z",
+                "updatedAt": "2021-08-31T06:13:27.576Z",
+                "__v": 0,
+                "id": "612dc8286e385200970ef0b7"
+            },
+            {
+                "_id": "612dc7be6e385200970ef0b4",
+                "name": "banner-1.jpg",
+                "alternativeText": "",
+                "caption": "",
+                "hash": "banner_1_283b901579",
+                "ext": ".jpg",
+                "mime": "image/jpeg",
+                "size": 59.9,
+                "width": 1000,
+                "height": 536,
+                "url": "/uploads/banner_1_283b901579.jpg",
+                "formats": {
+                    "thumbnail": {
+                        "name": "thumbnail_banner-1.jpg",
+                        "hash": "thumbnail_banner_1_283b901579",
+                        "ext": ".jpg",
+                        "mime": "image/jpeg",
+                        "width": 245,
+                        "height": 131,
+                        "size": 7.76,
+                        "path": null,
+                        "url": "/uploads/thumbnail_banner_1_283b901579.jpg"
+                    },
+                    "medium": {
+                        "name": "medium_banner-1.jpg",
+                        "hash": "medium_banner_1_283b901579",
+                        "ext": ".jpg",
+                        "mime": "image/jpeg",
+                        "width": 750,
+                        "height": 402,
+                        "size": 41.92,
+                        "path": null,
+                        "url": "/uploads/medium_banner_1_283b901579.jpg"
+                    },
+                    "small": {
+                        "name": "small_banner-1.jpg",
+                        "hash": "small_banner_1_283b901579",
+                        "ext": ".jpg",
+                        "mime": "image/jpeg",
+                        "width": 500,
+                        "height": 268,
+                        "size": 23.11,
+                        "path": null,
+                        "url": "/uploads/small_banner_1_283b901579.jpg"
+                    }
+                },
+                "provider": "local",
+                "related": [
+                    "612da4c777e23a0057295819"
+                ],
+                "createdAt": "2021-08-31T06:10:06.866Z",
+                "updatedAt": "2021-08-31T06:13:27.576Z",
+                "__v": 0,
+                "id": "612dc7be6e385200970ef0b4"
+            },
+            {
+                "_id": "612da488c7ea5a00373bf9e8",
+                "name": "teddy.jpeg",
+                "alternativeText": "",
+                "caption": "",
+                "hash": "teddy_63b17d0795",
+                "ext": ".jpeg",
+                "mime": "image/jpeg",
+                "size": 53.82,
+                "width": 1000,
+                "height": 536,
+                "url": "/uploads/teddy_63b17d0795.jpeg",
+                "formats": {
+                    "thumbnail": {
+                        "name": "thumbnail_teddy.jpeg",
+                        "hash": "thumbnail_teddy_63b17d0795",
+                        "ext": ".jpeg",
+                        "mime": "image/jpeg",
+                        "width": 245,
+                        "height": 131,
+                        "size": 7.44,
+                        "path": null,
+                        "url": "/uploads/thumbnail_teddy_63b17d0795.jpeg"
+                    },
+                    "medium": {
+                        "name": "medium_teddy.jpeg",
+                        "hash": "medium_teddy_63b17d0795",
+                        "ext": ".jpeg",
+                        "mime": "image/jpeg",
+                        "width": 750,
+                        "height": 402,
+                        "size": 37.56,
+                        "path": null,
+                        "url": "/uploads/medium_teddy_63b17d0795.jpeg"
+                    },
+                    "small": {
+                        "name": "small_teddy.jpeg",
+                        "hash": "small_teddy_63b17d0795",
+                        "ext": ".jpeg",
+                        "mime": "image/jpeg",
+                        "width": 500,
+                        "height": 268,
+                        "size": 21.51,
+                        "path": null,
+                        "url": "/uploads/small_teddy_63b17d0795.jpeg"
+                    }
+                },
+                "provider": "local",
+                "related": [
+                    "612da48ac7ea5a00373bf9e9",
+                    "612da4c777e23a0057295819"
+                ],
+                "createdAt": "2021-08-31T03:39:52.374Z",
+                "updatedAt": "2021-08-31T03:40:55.893Z",
+                "__v": 0,
+                "id": "612da488c7ea5a00373bf9e8"
+            }
+        ],
+        "_id": "612da4c777e23a0057295819",
+        "code": "home-banner",
+        "createdAt": "2021-08-31T03:40:55.882Z",
+        "updatedAt": "2021-09-11T17:11:51.363Z",
+        "__v": 0,
+        "id": "612da4c777e23a0057295819"
+    }
+]

@@ -12,7 +12,6 @@ interface Props {
 }
 
 const getSizes = (product: IProduct) => {
-  console.log("get size again");
   return product.Variants.map((x) => x.size || "").filter(
     (x) => x !== VARIANT_DEFAULT
   );
@@ -59,8 +58,6 @@ export const ProductInfo = ({ product }: Props) => {
     if (sizes && sizes.length) setCurrentSize(sizes[0]);
     if (colors && colors.length) setCurrentColor(colors[0]);
   }, []);
-
-  console.log(product);
 
   return (
     <div className={styles["product-detail"]}>
