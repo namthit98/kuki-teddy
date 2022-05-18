@@ -57,7 +57,7 @@ export const ProductInfo = ({ product }: Props) => {
   useEffect(() => {
     if (sizes && sizes.length) setCurrentSize(sizes[0]);
     if (colors && colors.length) setCurrentColor(colors[0]);
-  }, []);
+  }, [colors, sizes]);
 
   return (
     <div className={styles["product-detail"]}>
